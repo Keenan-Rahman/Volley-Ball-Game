@@ -1,0 +1,49 @@
+# Project: Project5
+# Makefile created by Dev-C++ 5.8.3
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = main.o implement.o credit.o instruction.o character.o background.o score.o characterselect.o
+LINKOBJ  = main.o implement.o credit.o instruction.o character.o background.o score.o characterselect.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib32" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -mwindows -lalleg_s -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lole32 -ldinput -lddraw -ldxguid -lwinmm -ldsound -m32 -g3
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
+BIN      = VOLLEYBALLGAME.exe
+CXXFLAGS = $(CXXINCS) -m32 -std=c++11 -g3 -std=c++11 -DALLEGRO_STATICLINK
+CFLAGS   = $(INCS) -m32 -std=c++11 -g3 -std=c++11 -DALLEGRO_STATICLINK
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+implement.o: implement.cpp
+	$(CPP) -c implement.cpp -o implement.o $(CXXFLAGS)
+
+credit.o: credit.cpp
+	$(CPP) -c credit.cpp -o credit.o $(CXXFLAGS)
+
+instruction.o: instruction.cpp
+	$(CPP) -c instruction.cpp -o instruction.o $(CXXFLAGS)
+
+character.o: character.cpp
+	$(CPP) -c character.cpp -o character.o $(CXXFLAGS)
+
+background.o: background.cpp
+	$(CPP) -c background.cpp -o background.o $(CXXFLAGS)
+
+score.o: score.cpp
+	$(CPP) -c score.cpp -o score.o $(CXXFLAGS)
+
+characterselect.o: characterselect.cpp
+	$(CPP) -c characterselect.cpp -o characterselect.o $(CXXFLAGS)
